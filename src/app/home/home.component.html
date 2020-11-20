@@ -1,0 +1,23 @@
+<mat-toolbar>
+    <button mat-icon-button aria-label="Open Menu Button" (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>
+        30 Days
+    </span>
+</mat-toolbar>
+<mat-drawer-container class="home-container" autosize>
+    <mat-drawer #drawer class="home-sidenav" mode="side">
+        <button mat-raised-button routerLink="">
+            Calendar
+        </button>
+        <button mat-raised-button routerLink="/me">
+            Me
+        </button>
+    </mat-drawer>
+
+    <div class="home-sidenav-content">
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-drawer-container>

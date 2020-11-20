@@ -1,0 +1,14 @@
+.home-container {
+    width: 100%;
+    height: 100%;
+}
+  
+.home-sidenav-content {
+    display: flex;
+    height: 100%;
+}
+
+.home-sidenav {
+    display: grid;
+    grid-template-rows: 100%;
+}
