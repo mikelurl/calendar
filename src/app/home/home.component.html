@@ -1,23 +1,32 @@
-<mat-toolbar>
-    <button mat-icon-button aria-label="Open Menu Button" (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-    </button>
+<mat-toolbar color="primary" *ngIf="!mobileQuery.matches">
     <span>
         30 Days
     </span>
 </mat-toolbar>
-<mat-drawer-container class="home-container" autosize>
-    <mat-drawer #drawer class="home-sidenav" mode="side">
-        <button mat-raised-button routerLink="">
-            Calendar
+<mat-sidenav-container class="home-container">
+    <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" 
+                [opened]="!mobileQuery.matches"
+                [class.sidenav-is-mobile]="mobileQuery.matches">
+        <mat-toolbar *ngIf="mobileQuery.matches">
+            <button mat-icon-button aria-label="Close Menu Button" (click)="sidenav.close()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item routerLink="">Calendar</a>
+            <a mat-list-item routerLink="/me">Me</a>
+        </mat-nav-list>
+        <button mat-flat-button color="accent" (click)="logout()">
+            Logout
         </button>
-        <button mat-raised-button routerLink="/me">
-            Me
+    </mat-sidenav>
+    <mat-toolbar color="primary" *ngIf="mobileQuery.matches">
+        <button mat-icon-button aria-label="Open Menu Button" (click)="sidenav.open()">
+          <mat-icon>menu</mat-icon>
         </button>
-    </mat-drawer>
-
-    <div class="home-sidenav-content">
-        <router-outlet></router-outlet>
-    </div>
-
-</mat-drawer-container>
+        <span>
+          30 Days
+        </span>
+      </mat-toolbar>
+    <router-outlet></router-outlet>
+</mat-sidenav-container>

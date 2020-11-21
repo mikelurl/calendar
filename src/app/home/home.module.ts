@@ -9,7 +9,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav'; 
 import { AuthGuard } from '../auth/auth.guard';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon'; 
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { CalendarDetailComponent } from './calendar-detail/calendar-detail.component';
 
 
 
@@ -17,14 +19,16 @@ import { MatIconModule } from '@angular/material/icon';
   declarations: [
     CalendarComponent,
     MeComponent,
-    HomeComponent],
+    HomeComponent,
+    CalendarDetailComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [AuthGuard],
 })

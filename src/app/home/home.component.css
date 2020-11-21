@@ -4,11 +4,14 @@
 }
   
 .home-sidenav-content {
-    display: flex;
+    /* display: flex; */
     height: 100%;
 }
 
-.home-sidenav {
-    display: grid;
-    grid-template-rows: 100%;
+.sidenav-is-mobile {
+    width: 100%;
+}
+
+.detail-is-mobile {
+    width: 100%;
 }
