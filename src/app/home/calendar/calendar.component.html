@@ -1,7 +1,6 @@
-<mat-sidenav #sidedetail [mode]="mobileQuery.matches ? 'over' : 'side'" [class.detail-is-mobile]="mobileQuery.matches"
-  position="end">
-  <app-calendar-detail (closeDetailEvent)="sidedetail.close()"></app-calendar-detail>
-</mat-sidenav>
-<mat-list role="list">
-  <mat-list-item role="listitem" class="cal-list" (click)="sidedetail.toggle()">Item 1</mat-list-item>
-</mat-list>
+<div class="calendar">
+  <app-cal-calendar (selected)="selectedDate($event)"></app-cal-calendar>
+  <mat-list role="list">
+    <mat-list-item role="listitem" class="cal-list" (click)="sideDetailToggle()">Item 1</mat-list-item>
+  </mat-list>
+</div>

@@ -12,6 +12,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { CalendarDetailComponent } from './calendar-detail/calendar-detail.component';
+import { CalCalendarComponent } from '../utils/cal-calendar/cal-calendar.component';
+import { DetailService } from './services/detail.service';
 
 
 
@@ -20,7 +22,9 @@ import { CalendarDetailComponent } from './calendar-detail/calendar-detail.compo
     CalendarComponent,
     MeComponent,
     HomeComponent,
-    CalendarDetailComponent],
+    CalendarDetailComponent,
+    CalCalendarComponent
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -30,7 +34,7 @@ import { CalendarDetailComponent } from './calendar-detail/calendar-detail.compo
     MatSidenavModule,
     MatListModule
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, DetailService],
 })
 
 

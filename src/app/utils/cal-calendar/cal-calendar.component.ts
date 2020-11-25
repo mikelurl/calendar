@@ -37,11 +37,11 @@ export class CalCalendarComponent implements OnInit {
   }
 
   prevMonth(): void {
-    this.refreshSelection(new Date(this.selectedDate.getFullYear(), this.selectedDate.getMonth() - 1,this.selectedDate.getDay()));
+    this.refreshSelection(new Date(this.selectedDate.getFullYear(), this.selectedDate.getMonth() - 1,this.selectedDate.getDate()));
   }
 
   nextMonth(): void {
-    this.refreshSelection(new Date(this.selectedDate.getFullYear(), this.selectedDate.getMonth() + 1,this.selectedDate.getDay()));
+    this.refreshSelection(new Date(this.selectedDate.getFullYear(), this.selectedDate.getMonth() + 1,this.selectedDate.getDate()));
   }
 
   selectDay(day: number): void {
@@ -49,11 +49,24 @@ export class CalCalendarComponent implements OnInit {
     this.refreshSelection(date);
   }
 
+  selectToday(): void {
+    this.refreshSelection(this.nowDate);
+  }
+
   refreshSelection(date: Date): void {
     this.selectedDate = date; 
     this.spanner = this.getSpannerInMonth(date);
     this.days = this.getDaysInMonth(date);
     this.selected.emit(date);
+  }
+
+  isSelected(day: number): boolean {
+    if(day == this.selectedDate.getDate()) return true;
+    else return false;
+  }
+
+  getMonthYearString(): string {
+    return this.selectedDate.toLocaleDateString(undefined, { year: 'numeric', month: 'long' });
   }
 
   private getSpannerInMonth(date: Date): number[] {

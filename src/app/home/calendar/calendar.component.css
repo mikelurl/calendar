@@ -1,8 +1,11 @@
+.calendar {
+    margin: 5px;
+}
+
 .detail-is-mobile {
     width: 100%;
 }
 
 .cal-list {
-    margin: 5px;
     background-color: green;
 }

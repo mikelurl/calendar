@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthGuard } from './auth/auth.guard';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon'; 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { CalCalendarComponent } from './utils/cal-calendar/cal-calendar.component';
@@ -17,14 +18,14 @@ import { CalCalendarComponent } from './utils/cal-calendar/cal-calendar.componen
   declarations: [
     AppComponent,
     StartpageComponent,
-    LoginComponent,
-    CalCalendarComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
+    MatIconModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

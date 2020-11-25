@@ -1,5 +1,15 @@
 <div class="cal-container">
+    <div class="cal-bar">
+        <button mat-icon-button (click)="prevMonth()">
+            <mat-icon>navigate_before</mat-icon>
+        </button>
+        <button mat-flat-button color="accent">{{getMonthYearString()}}</button>
+        <button mat-stroked-button color="accent" (click)="selectToday()">Today</button>
+        <button mat-icon-button (click)="nextMonth()">
+            <mat-icon>navigate_next</mat-icon>
+        </button>
+    </div>
     <div class="cal-weekday" *ngFor="let weekday of weekdays">{{weekday}}</div>
     <div class="cal-day-spanner" *ngFor="let item of spanner"></div>
-    <div class="cal-day" *ngFor="let day of days" (click)="selectDay(day)">{{day}}</div>
+    <div class="cal-day" [class.day-is-selected]="isSelected(day)" *ngFor="let day of days" (click)="selectDay(day)">{{day}}</div>
 </div>

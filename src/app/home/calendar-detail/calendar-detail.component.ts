@@ -1,4 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MediaMatcher } from '@angular/cdk/layout';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { DetailService } from '../services/detail.service';
 
 @Component({
   selector: 'app-calendar-detail',
@@ -6,15 +8,16 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./calendar-detail.component.css']
 })
 export class CalendarDetailComponent implements OnInit {
-  @Output() closeDetailEvent = new EventEmitter();
 
-  constructor() { }
+
+  constructor(private detailService: DetailService) {}
 
   ngOnInit(): void {
   }
 
+
   closeDetail(): void {
-    this.closeDetailEvent.emit();
+    this.detailService.close();
   }
 
 }
