@@ -1,6 +1,6 @@
 <div class="calendar">
   <app-cal-calendar (selected)="selectedDate($event)"></app-cal-calendar>
-  <mat-list role="list">
-    <mat-list-item role="listitem" class="cal-list" (click)="sideDetailToggle()">Item 1</mat-list-item>
-  </mat-list>
+  <div class="cal-list">
+    <div *ngFor="let item of items" class="cal-list-item" (click)="sideDetailToggle()">Date {{item}}</div>
+  </div>
 </div>

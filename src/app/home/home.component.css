@@ -14,3 +14,12 @@
 .detail-is-mobile {
     width: 100%;
 }
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+  }
+
+.toolbar-bottom {
+    position: fixed;
+    bottom: 0;
+}

@@ -7,5 +7,16 @@
 }
 
 .cal-list {
-    background-color: green;
+    width: auto;
+    margin-top: 5px;
 }
+
+.cal-list-item {
+    background-color: #ffffff;
+    height: 50px;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+
+  

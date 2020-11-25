@@ -7,6 +7,7 @@ import { DetailService } from '../services/detail.service';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
+  items = [1,2,3,4,5,6,7,8,9,10]
   isSelected : Date
 
   constructor(private detailService: DetailService) {

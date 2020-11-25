@@ -2,6 +2,10 @@
     <span>
         30 Days
     </span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button aria-label="" >
+        <mat-icon>add_circle_outline</mat-icon>
+    </button>
 </mat-toolbar>
 <mat-sidenav-container class="home-container" autosize>
     <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="!mobileQuery.matches"
@@ -25,15 +29,17 @@
         <app-calendar-detail></app-calendar-detail>
     </mat-sidenav>
     <mat-sidenav-content>
-
-        <mat-toolbar color="primary" *ngIf="mobileQuery.matches">
-            <button mat-icon-button aria-label="Open Menu Button" (click)="sidenav.open()">
-                <mat-icon>menu</mat-icon>
-            </button>
-            <span>
-                30 Days
-            </span>
-        </mat-toolbar>
         <router-outlet></router-outlet>
+        <mat-toolbar *ngIf="mobileQuery.matches" class="toolbar-bottom">
+            <button mat-icon-button aria-label="" routerLink="" >
+                <mat-icon>today</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="" >
+                <mat-icon>add_circle_outline</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="" routerLink="/me">
+                <mat-icon>account_circle</mat-icon>
+            </button>
+        </mat-toolbar>
     </mat-sidenav-content>
 </mat-sidenav-container>

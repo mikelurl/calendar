@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { CalendarDetailComponent } from './calendar-detail/calendar-detail.component';
 import { CalCalendarComponent } from '../utils/cal-calendar/cal-calendar.component';
 import { DetailService } from './services/detail.service';
+import { ScrollingModule } from '@angular/cdk/scrolling'; 
 
 
 
@@ -32,7 +33,8 @@ import { DetailService } from './services/detail.service';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    ScrollingModule
   ],
   providers: [AuthGuard, DetailService],
 })
