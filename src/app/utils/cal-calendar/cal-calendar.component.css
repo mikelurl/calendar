@@ -1,0 +1,20 @@
+.cal-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 2px;
+}
+
+.cal-weekday {
+    background-color: #ff4081;
+    text-align: center;
+}
+
+.cal-day {
+    background-color: #e0e0e0;
+    text-align: center;
+}
+
+.cal-day-spanner {
+    background-color: #f0f0f0;
+}
+

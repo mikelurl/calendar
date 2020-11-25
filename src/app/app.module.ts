@@ -11,12 +11,14 @@ import { AuthGuard } from './auth/auth.guard';
 import { MatButtonModule } from '@angular/material/button';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { CalCalendarComponent } from './utils/cal-calendar/cal-calendar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StartpageComponent,
-    LoginComponent
+    LoginComponent,
+    CalCalendarComponent
   ],
   imports: [
     BrowserModule,

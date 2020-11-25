@@ -3,3 +3,5 @@
     <span class="start-spacer"></span>
     <button mat-flat-button color="accent" routerLink="/login">Login</button>
 </mat-toolbar>
+<app-cal-calendar (selected)="selectedDate($event)"></app-cal-calendar>
+Selected: {{stringDate}}
