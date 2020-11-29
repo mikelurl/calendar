@@ -12,7 +12,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon'; 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { CalCalendarComponent } from './utils/cal-calendar/cal-calendar.component';
 
 @NgModule({
   declarations: [

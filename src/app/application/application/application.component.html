@@ -1,0 +1,33 @@
+<mat-toolbar class="toolbar-top" color="primary" *ngIf="!mobileQuery.matches">
+    <span>
+        30 Days
+    </span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button aria-label="" routerLink="/calendar/new">
+        <mat-icon>add_circle_outline</mat-icon>
+    </button>
+</mat-toolbar>
+<div class="appl">
+    <div class="main-grid">
+        <div class="main-nav" *ngIf="!mobileQuery.matches">
+            <mat-nav-list>
+                <a mat-list-item [routerLink]="['/calendar']">Calendar</a>
+                <a mat-list-item [routerLink]="['/account']">Account</a>
+            </mat-nav-list>
+        </div>
+        <div class="main-content" [class.main-content-mobile]="mobileQuery.matches">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<mat-toolbar *ngIf="mobileQuery.matches" class="toolbar-bottom">
+    <button mat-icon-button aria-label="" routerLink="">
+        <mat-icon>today</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="" routerLink="/calendar/new">
+        <mat-icon>add_circle_outline</mat-icon>
+    </button>
+    <button mat-icon-button aria-label="" [routerLink]="['/account']">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+</mat-toolbar>
