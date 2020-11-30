@@ -1,4 +1,5 @@
 export interface AppEvents extends Array<AppEvent> {}
+export interface AppEventsDetail extends Array<AppEventDetail> {}
 
 export interface AppEvent {
     id: number;
@@ -8,7 +9,7 @@ export interface AppEvent {
     place: string;
 }
 
-export interface AppEventDetails extends AppEvent {
-    particimants: Array<string>;
+export interface AppEventDetail extends AppEvent {
+    participants: Array<string>;
     description: string;
 }
