@@ -15,10 +15,7 @@ export class ApplicationComponent implements OnInit, OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(private authService: AuthService,
-      private routerService: Router,
-      private changeDetectorRef: ChangeDetectorRef,
-      private media: MediaMatcher) {
+  constructor(private changeDetectorRef: ChangeDetectorRef, private media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
@@ -29,11 +26,6 @@ export class ApplicationComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
-  }
-
-  logout(): void {
-    this.authService.logout();
-    this.routerService.navigate(['start']);
   }
 
 }
