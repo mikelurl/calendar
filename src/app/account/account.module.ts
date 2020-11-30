@@ -5,6 +5,7 @@ import { AccountRoutingModule } from './account-routing.module';
 import { MeComponent } from './me/me.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthService } from '../auth/auth.service';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { AuthService } from '../auth/auth.service';
   imports: [
     CommonModule,
     MatToolbarModule,
+    MatButtonModule,
     AccountRoutingModule
   ],
   providers: [AuthService]
