@@ -9,7 +9,7 @@ export class CalendarService {
 
   constructor() {
     this._myEvents = JSON.parse(localStorage.getItem('myCalendar'))
-    if(this._myEvents === []) {
+    if(this._myEvents === null) {
       this._myEvents = ExampleEventsDetail;
       this._saveLocalEvents();
     }
