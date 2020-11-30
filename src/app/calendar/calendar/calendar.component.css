@@ -10,6 +10,10 @@
     width: 100%;
 }
 
+.toolbar-spacer {
+    flex: 1 1 auto;
+  }
+
 .calendar {
     margin: 5px;
 }

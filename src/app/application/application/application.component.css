@@ -11,17 +11,17 @@
 }
 
 .main-nav {
-  margin-top: 64px;
+  /* margin-top: 64px; */
   grid-column: 2 span;
 }
 
 .main-content {
-  margin-top: 64px;
+  /* margin-top: 64px; */
   grid-column: 10 span;
 }
 
 .main-content-mobile {
-  margin-top: 0;
+  /* margin-top: 0; */
   margin-bottom: 64px;
   grid-column: 12 span;
 }
@@ -30,11 +30,11 @@
     flex: 1 1 auto;
   }
 
-.toolbar-top {
+/* .toolbar-top {
   position: fixed;
   top: 0;
   z-index: 1000;
-}
+} */
 
 
 .toolbar-bottom {
