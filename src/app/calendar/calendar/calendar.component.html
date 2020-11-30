@@ -3,12 +3,13 @@
         <div class="calendar">
             <app-cal-calendar (selected)="selectedDate($event)"></app-cal-calendar>
             <div class="cal-list">
-                <div *ngFor="let item of items" class="cal-list-item" [routerLink]="['detail']">{{item.start}} {{item.title}}</div>
+                <div *ngFor="let item of items" class="cal-list-item" [routerLink]="['detail']">{{item.start}}
+                    {{item.title}}</div>
             </div>
         </div>
     </mat-sidenav-content>
-    <mat-sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [class.detail-is-mobile]="mobileQuery.matches"
-        [opened]="openSidebar" position="end" disableClose="true">
+    <mat-sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" class="detail"
+        [class.detail-is-mobile]="mobileQuery.matches" [opened]="openSidebar" position="end" disableClose="true">
         <router-outlet (activate)="openSidebar = true" (deactivate)="openSidebar = false"></router-outlet>
     </mat-sidenav>
 </mat-sidenav-container>

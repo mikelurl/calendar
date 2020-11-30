@@ -9,6 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CalCalendarComponent } from './cal-calendar/cal-calendar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { CalCalendarComponent } from './cal-calendar/cal-calendar.component';
     CalendarRoutingModule,
     MatSidenavModule,
     MatIconModule,
+    MatToolbarModule,
     MatButtonModule
   ]
 })

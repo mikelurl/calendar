@@ -2,6 +2,10 @@
     height: 100%;
 }
 
+.detail {
+    min-width: 250px;
+}
+
 .detail-is-mobile {
     width: 100%;
 }
