@@ -1,0 +1,11 @@
+<span>{{selectedDate}}</span>
+
+<!-- <cdk-virtual-scroll-viewport itemSize="50" class="cal-list">
+    <div *cdkVirtualFor="let item of items" class="cal-list-item" [routerLink]="['detail']">{{item.start}}
+        {{item.title}}</div>
+</cdk-virtual-scroll-viewport> -->
+
+<div class="cal-list">
+    <div *ngFor="let item of items" class="cal-list-item" [routerLink]="['detail']">{{item.start}}
+        {{item.title}}</div>
+</div>

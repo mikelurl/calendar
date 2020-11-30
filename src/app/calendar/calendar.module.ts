@@ -10,6 +10,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CalCalendarComponent } from './cal-calendar/cal-calendar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+import { CalListComponent } from './cal-list/cal-list.component';
+
 
 
 @NgModule({
@@ -17,7 +20,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     CalendarComponent,
     DetailEventComponent,
     NewEventComponent,
-    CalCalendarComponent
+    CalCalendarComponent,
+    CalListComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +29,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatSidenavModule,
     MatIconModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    ScrollingModule
   ]
 })
 export class CalendarModule { }

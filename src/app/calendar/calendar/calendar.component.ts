@@ -1,6 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { ExampleEvents } from 'src/assets/example-data';
 
 @Component({
   selector: 'app-calendar',
@@ -8,7 +7,6 @@ import { ExampleEvents } from 'src/assets/example-data';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit, OnDestroy {
-  items = ExampleEvents;
   isSelected: Date
   openSidebar: boolean
 
