@@ -1,6 +1,8 @@
 import { ViewportRuler } from '@angular/cdk/scrolling';
 import { Component, Input, OnInit } from '@angular/core';
-import { ExampleEvents } from 'docs/assets/example-data';
+import { Router } from '@angular/router';
+import { CalendarService } from 'src/app/services/calendar.service';
+import { AppEvents } from 'src/assets/models/events';
 
 @Component({
   selector: 'app-cal-list',
@@ -10,17 +12,19 @@ import { ExampleEvents } from 'docs/assets/example-data';
 export class CalListComponent implements OnInit {
   @Input() selectedDate: Date;
 
-  items = ExampleEvents;
+  appEvents: AppEvents;
 
-  constructor(private _ruler: ViewportRuler) {
-    this.items.forEach(item =>{
-      this.items.push(item)
-    })
+  constructor(private _ruler: ViewportRuler, private _router: Router, private _calService: CalendarService) {
   }
 
   ngOnInit(): void {
-    console.log(this.items);
-    // console.log(this._ruler.getViewportRect().height);
+    this._calService.getAllEvents().subscribe(ev => {
+      this.appEvents = ev;
+    })
+  }
+
+  showDetails(id: number): void {
+    this._router.navigate(['calendar/event', id]);
   }
 
 }

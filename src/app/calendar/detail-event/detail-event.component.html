@@ -2,6 +2,16 @@
     <button mat-icon-button (click)="routingBack()">
         <mat-icon>navigate_before</mat-icon>
     </button>
-    <span>Event Details</span>
+    <span>Details</span>
+    <div class="toolbar-spacer"></div>
+    <button mat-icon-button (click)="editEvent()" *ngIf="!isEditing">
+        <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="saveEvent()" *ngIf="isEditing">
+        <mat-icon>check</mat-icon>
+    </button>
 </mat-toolbar>
+<span>{{eventDetails.title}}</span>
+{{eventDetails}}
+<button mat-stroked-button (click)="deleteEvent()">Delete Event</button>
 

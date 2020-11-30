@@ -12,6 +12,7 @@ import { CalCalendarComponent } from './cal-calendar/cal-calendar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CalListComponent } from './cal-list/cal-list.component';
+import { CalendarService } from '../services/calendar.service';
 
 
 
@@ -31,6 +32,7 @@ import { CalListComponent } from './cal-list/cal-list.component';
     MatToolbarModule,
     MatButtonModule,
     ScrollingModule
-  ]
+  ],
+  providers: [CalendarService]
 })
 export class CalendarModule { }

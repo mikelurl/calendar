@@ -15,7 +15,7 @@ const routes: Routes = [
     component: CalendarComponent,
     children: [
       {
-        path: 'detail',
+        path: 'event/:id',
         component: DetailEventComponent
       },
       {

@@ -6,6 +6,6 @@
 </cdk-virtual-scroll-viewport> -->
 
 <div class="cal-list">
-    <div *ngFor="let item of items" class="cal-list-item" [routerLink]="['detail']">{{item.start}}
+    <div *ngFor="let item of appEvents" class="cal-list-item" (click)="showDetails(item.id)">{{item.start}}
         {{item.title}}</div>
 </div>
