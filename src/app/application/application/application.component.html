@@ -17,11 +17,11 @@
     </div>
 </div>
 <mat-toolbar *ngIf="mobileQuery.matches" class="toolbar-bottom">
-    <button mat-icon-button aria-label="" routerLink="">
+    <button mat-icon-button aria-label="" [routerLink]="['/calendar']">
         <mat-icon>today</mat-icon>
     </button>
     <span class="toolbar-spacer"></span>
-    <button mat-icon-button aria-label="" routerLink="/calendar/new">
+    <button mat-icon-button aria-label="" [routerLink]="['/calendar/new']">
         <mat-icon>add_circle_outline</mat-icon>
     </button>
     <span class="toolbar-spacer"></span>
