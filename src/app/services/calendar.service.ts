@@ -83,6 +83,12 @@ export class CalendarService {
     return _obs
   }
 
+  deleteAllEvents(): void {
+    localStorage.removeItem('myCalendar')
+    this._myEvents = []
+    this._saveLocalEvents();
+  }
+
   deleteEvent(appEvent: AppEventDetail): void {
     this._myEvents = this._myEvents.filter(ev => ev !== appEvent)
     this._saveLocalEvents();
