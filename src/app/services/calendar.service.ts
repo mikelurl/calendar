@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { AppEventDetail, AppEvents, AppEvent, AppEventsDetail } from './models/events';
 import { Observable } from 'rxjs';
 import { ExampleEventsDetail } from 'src/assets/example-data';
-import { AppEvent, AppEventDetail, AppEvents, AppEventsDetail } from 'src/assets/models/events';
 
 @Injectable()
 export class CalendarService {
