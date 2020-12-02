@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { CalendarService } from 'src/app/services/calendar.service';
-import { AppEventDetail } from 'src/assets/models/events';
 import { FormGroup, FormControl } from '@angular/forms';
+import { AppEventDetail } from 'src/app/services/models/events';
 
 
 @Component({

@@ -1,4 +1,5 @@
-import { AppEvents, AppEventsDetail } from "./models/events";
+import { AppEvents, AppEventsDetail } from 'src/app/services/models/events'
+
 
 export const ExampleEvents: AppEvents = [
     {

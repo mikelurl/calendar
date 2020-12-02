@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { CalendarService } from 'src/app/services/calendar.service';
-import { AppEventDetail } from 'src/assets/models/events';
+import { AppEventDetail } from 'src/app/services/models/events';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({

@@ -2,7 +2,7 @@ import { ViewportRuler } from '@angular/cdk/scrolling';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CalendarService } from 'src/app/services/calendar.service';
-import { AppEvents } from 'src/assets/models/events';
+import { AppEvents } from 'src/app/services/models/events';
 
 @Component({
   selector: 'app-cal-list',
