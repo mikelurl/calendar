@@ -84,8 +84,7 @@ export class CalendarService {
   }
 
   deleteEvent(appEvent: AppEventDetail): void {
-    let index = this._myEvents.indexOf(appEvent, 0)
-    delete this._myEvents[index];
+    this._myEvents = this._myEvents.filter(ev => ev !== appEvent)
     this._saveLocalEvents();
   }
 }
