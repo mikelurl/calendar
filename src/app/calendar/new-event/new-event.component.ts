@@ -13,7 +13,6 @@ import { AppEventDetail } from 'src/app/services/models/events';
 export class NewEventComponent implements OnInit {
 
   eventDetailsForm = new FormGroup({
-    id: new FormControl(''),
     title: new FormControl(''),
     start: new FormControl(new Date()),
     end: new FormControl(new Date()),
@@ -43,7 +42,7 @@ export class NewEventComponent implements OnInit {
       description: "",
       participants: []
     }
-
+  
     temp = this.eventDetailsForm.getRawValue()
 
     this._calService.addEvent(temp);

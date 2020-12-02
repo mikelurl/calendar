@@ -54,6 +54,7 @@ export class CalendarService {
   }
 
   addEvent(event: AppEventDetail): Observable<AppEventsDetail> {
+    event.id = Date.now();
     this._myEvents.push(event);
     this._saveLocalEvents()
 
