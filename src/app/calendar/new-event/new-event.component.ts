@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { CalendarService } from 'src/app/services/calendar.service';
 import { AppEventDetail } from 'src/assets/models/events';
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-new-event',
@@ -10,9 +12,21 @@ import { AppEventDetail } from 'src/assets/models/events';
 })
 export class NewEventComponent implements OnInit {
 
+  eventDetailsForm = new FormGroup({
+    id: new FormControl(''),
+    title: new FormControl(''),
+    start: new FormControl(new Date()),
+    end: new FormControl(new Date()),
+    place: new FormControl(''),
+    participants: new FormControl(''),
+    description: new FormControl(''),
+  });
+
   constructor(private _location: Location, private _calService: CalendarService) { }
 
   ngOnInit(): void {
+
+    
   }
 
   routingBack(): void {
@@ -22,13 +36,16 @@ export class NewEventComponent implements OnInit {
   addEvent(): void {
     let temp: AppEventDetail = {
       id: Date.now(),
-      title: "Automatisch_" + (Date.now()).toString,
-      start: new Date(Date.now()),
-      end: new Date(Date.now()),
-      place: "Internet",
-      description: "Automatisches Event",
-      participants: ["Me", "You", "AndI"]
+      title: "",
+      start: new Date(),
+      end: new Date(),
+      place: "",
+      description: "",
+      participants: []
     }
+
+    temp = this.eventDetailsForm.getRawValue()
+
     this._calService.addEvent(temp);
     this.routingBack()
   }

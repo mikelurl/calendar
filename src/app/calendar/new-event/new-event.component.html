@@ -8,3 +8,43 @@
         <mat-icon>check</mat-icon>
     </button>
 </mat-toolbar>
+
+<div class="details-content">
+    <form [formGroup]="eventDetailsForm" class="form">
+
+        <mat-form-field appearance="fill" class="col-4 disab">
+            <mat-label>Title</mat-label>
+            <input matInput type="text" formControlName="title">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-2">
+            <mat-label>Begin</mat-label>
+            <input matInput [matDatepicker]="pickerStart" formControlName="start">
+            <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStart></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-2">
+            <mat-label>End</mat-label>
+            <input matInput [matDatepicker]="pickerEnd" formControlName="end">
+            <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEnd></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-4">
+            <mat-label>Place</mat-label>
+            <input matInput type="text" formControlName="place">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-4">
+            <mat-label>Participants</mat-label>
+            <input matInput type="text" formControlName="participants">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="col-4">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+
+    </form>
+</div>
