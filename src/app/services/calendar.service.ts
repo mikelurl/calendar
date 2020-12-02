@@ -5,11 +5,11 @@ import { AppEvent, AppEventDetail, AppEvents, AppEventsDetail } from 'src/assets
 
 @Injectable()
 export class CalendarService {
-  private _myEvents: AppEventsDetail;
+  private _myEvents: Array<AppEventDetail>;
 
   constructor() {
     this._myEvents = JSON.parse(localStorage.getItem('myCalendar'))
-    if(this._myEvents === null) {
+    if (this._myEvents === null) {
       this._myEvents = ExampleEventsDetail;
       this._saveLocalEvents();
     }
@@ -43,11 +43,11 @@ export class CalendarService {
   getEventDetailsById(id: number): Observable<AppEventDetail> {
     let _obs: Observable<AppEventDetail>
     this._myEvents.forEach(ev => {
-      if(ev.id == id) {
+      if (ev.id == id) {
         _obs = new Observable((observer) => {
           observer.next(ev)
           observer.complete()
-      })
+        })
       }
     })
     return _obs
@@ -56,7 +56,7 @@ export class CalendarService {
   addEvent(event: AppEventDetail): Observable<AppEventsDetail> {
     this._myEvents.push(event);
     this._saveLocalEvents()
-    
+
     let _obs: Observable<AppEventsDetail>
     _obs = new Observable((observer) => {
       observer.next(this._myEvents)
@@ -65,15 +65,15 @@ export class CalendarService {
     return _obs
   }
 
-  editEvent(event: AppEventDetail): Observable<AppEventsDetail> {
-    this._myEvents.forEach((ev, index) => {
-      if(ev == event) {
-        this._myEvents.slice(index, 1)
-        this._myEvents.push(event)
+  editEvent(appEvent: AppEventDetail): Observable<AppEventsDetail> {
+
+    for (let [i, ev] of this._myEvents.entries()) {
+      if (ev.id === appEvent.id) {
+        this._myEvents[i] = appEvent;
         this._saveLocalEvents();
-        return
+        return;
       }
-    })
+    }
 
     let _obs: Observable<AppEventsDetail>
     _obs = new Observable((observer) => {
@@ -83,9 +83,9 @@ export class CalendarService {
     return _obs
   }
 
-  deletEvent(appEvent: AppEventDetail): void {
+  deleteEvent(appEvent: AppEventDetail): void {
     let index = this._myEvents.indexOf(appEvent, 0)
-    delete this._myEvents[index]; 
+    delete this._myEvents[index];
     this._saveLocalEvents();
   }
 }

@@ -13,6 +13,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CalListComponent } from './cal-list/cal-list.component';
 import { CalendarService } from '../services/calendar.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input'; 
+import { MatDatepickerModule } from '@angular/material/datepicker'; 
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -31,7 +36,12 @@ import { CalendarService } from '../services/calendar.service';
     MatIconModule,
     MatToolbarModule,
     MatButtonModule,
-    ScrollingModule
+    ReactiveFormsModule,
+    ScrollingModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule
   ],
   providers: [CalendarService]
 })
