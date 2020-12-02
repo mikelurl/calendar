@@ -1,11 +1,15 @@
-<span>{{selectedDate}}</span>
-
 <!-- <cdk-virtual-scroll-viewport itemSize="50" class="cal-list">
     <div *cdkVirtualFor="let item of items" class="cal-list-item" [routerLink]="['detail']">{{item.start}}
         {{item.title}}</div>
 </cdk-virtual-scroll-viewport> -->
 
 <div class="cal-list">
-    <div *ngFor="let item of appEvents" class="cal-list-item" (click)="showDetails(item.id)">{{item.start}}
-        {{item.title}}</div>
+    <div *ngFor="let item of stringAppEvents" class="cal-list-item" (click)="showDetails(item.id)">
+        <div>{{item.startday}}.{{item.startmonth}}</div>
+        <div>
+            <strong>{{item.title}}</strong><br>
+            {{item.starttime}} - {{item.endtime}} Uhr<br>
+            {{item.place}}
+        </div>
+    </div>
 </div>

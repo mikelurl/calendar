@@ -4,7 +4,8 @@
 
 .cal-list-item {
     background-color: #ffffff;
-    height: 50px;
     margin-bottom: 5px;
     padding: 5px;
+    display: grid;
+    grid-template-columns: minmax(50px, 100px) auto;
 }

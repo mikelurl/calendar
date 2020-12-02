@@ -18,7 +18,7 @@
         </mat-toolbar>
         <div class="calendar">
             <app-cal-calendar (selected)="selectedDate($event)"></app-cal-calendar>
-            <app-cal-list [selectedDate]="isSelected"></app-cal-list>
+            <app-cal-list [selectedDate]="isSelected" [data]="eventList"></app-cal-list>
         </div>
     </mat-sidenav-content>
     <mat-sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" class="detail"
