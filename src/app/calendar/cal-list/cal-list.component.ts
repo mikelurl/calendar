@@ -1,5 +1,5 @@
 import { ViewportRuler } from '@angular/cdk/scrolling';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CalendarService } from 'src/app/services/calendar.service';
@@ -20,21 +20,21 @@ export interface listEventElements {
   templateUrl: './cal-list.component.html',
   styleUrls: ['./cal-list.component.css']
 })
-export class CalListComponent implements OnInit {
+export class CalListComponent implements OnInit, OnChanges {
   @Input() selectedDate: Date;
-  @Input() data: Observable<any>;
+  @Input() data: AppEvents;
 
-  appEvents: AppEvents;
   stringAppEvents: Array<listEventElements>
+
   constructor(private _ruler: ViewportRuler, private _router: Router, private _calService: CalendarService) {
   }
 
   ngOnInit(): void {
-    this.data.subscribe(rawData => {
-      this.appEvents = rawData;
-    })
+    this.stringAppEvents = this._appEventsToString(this.data)
+  }
 
-    this.stringAppEvents = this._appEventsToString(this.appEvents)
+  ngOnChanges(changes: SimpleChanges): void {
+    this.stringAppEvents = this._appEventsToString(this.data)
   }
 
   showDetails(id: number): void {

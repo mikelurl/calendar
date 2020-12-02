@@ -1,7 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { distinctUntilChanged } from 'rxjs/operators';
 import { CalendarService } from 'src/app/services/calendar.service';
 import { AppEvents } from 'src/app/services/models/events';
 
@@ -12,22 +10,23 @@ import { AppEvents } from 'src/app/services/models/events';
 })
 export class CalendarComponent implements OnInit, OnDestroy {
   isSelected: Date
-  openSidebar: boolean
-  eventList: Observable<AppEvents>
+  sidebarIsOpen: boolean
+
+  eventList: AppEvents
 
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef,
-      private media: MediaMatcher, private _calS: CalendarService) {
+  constructor(changeDetectorRef: ChangeDetectorRef,
+      media: MediaMatcher, private _calS: CalendarService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
   }
 
   ngOnInit(): void {
-    this.eventList = this._calS.getAllEvents();
+    this.getData();
   }
 
   ngOnDestroy(): void {
@@ -36,6 +35,21 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   selectedDate(date: Date): void {
     this.isSelected = date
+  }
+
+  getData(): void {
+    this._calS.getAllEvents().subscribe(list => {
+      this.eventList = list;
+    });
+  }
+
+  openSidebar(): void {
+    this.sidebarIsOpen = true;
+  }
+
+  closeSidebar(): void {
+    this.sidebarIsOpen = false;
+    this.getData();
   }
 
 }
