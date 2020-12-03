@@ -18,6 +18,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input'; 
 import { MatDatepickerModule } from '@angular/material/datepicker'; 
 import { MatNativeDateModule } from '@angular/material/core';
+import { SpaceService } from './services/space.service';
 
 
 
@@ -43,6 +44,6 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatNativeDateModule,
     MatInputModule
   ],
-  providers: [CalendarService]
+  providers: [CalendarService, SpaceService]
 })
 export class CalendarModule { }

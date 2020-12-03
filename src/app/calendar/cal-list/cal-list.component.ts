@@ -1,9 +1,10 @@
 import { ViewportRuler } from '@angular/cdk/scrolling';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CalendarService } from 'src/app/services/calendar.service';
 import { AppEvent, AppEvents } from 'src/app/services/models/events';
+import { SpaceService } from '../services/space.service';
 
 export interface listEventElements {
     id: number;
@@ -23,22 +24,39 @@ export interface listEventElements {
 export class CalListComponent implements OnInit, OnChanges {
   @Input() selectedDate: Date;
   @Input() data: AppEvents;
-
+  
+  availH: number;
   stringAppEvents: Array<listEventElements>
-
-  constructor(private _ruler: ViewportRuler, private _router: Router, private _calService: CalendarService) {
+  
+  constructor(private _router: Router, private _calService: CalendarService, private _spaceS: SpaceService, private _cdRef:ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
-    this.stringAppEvents = this._appEventsToString(this.data)
+    this.stringAppEvents = this._appEventsToString(this.data);
+    this._spaceS.getHeight().subscribe(height => {
+      this.availH = height;
+      this._cdRef.detectChanges();
+    })
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.stringAppEvents = this._appEventsToString(this.data)
+    this.stringAppEvents = this._appEventsToString(this.data);
   }
 
-  showDetails(id: number): void {
+  openDetails(id: number): void {
     this._router.navigate(['calendar/event', id]);
+  }
+
+  showDate(i: number): boolean {
+    if(i>=1) {
+      let datenow = new Date(this.data[i].start);
+      i = i-1;
+      let datebefore = new Date(this.data[i].start);
+  
+      if(datenow.getDate() === datebefore.getDate()) return false;
+      else return true;
+    } else return true;
+
   }
 
 

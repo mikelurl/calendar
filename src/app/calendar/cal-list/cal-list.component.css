@@ -1,11 +1,16 @@
 .cal-list {
-    width: 100%;
+    padding-top: 5px;
+    display: grid;
+    grid-template-columns: minmax(20px, 50px) auto;
+    gap: 5px;
 }
 
-.cal-list-item {
-    background-color: #ffffff;
-    margin-bottom: 5px;
+.cal-list-item-date {
     padding: 5px;
-    display: grid;
-    grid-template-columns: minmax(50px, 100px) auto;
+    text-align: center;
+}
+
+.cal-list-item-content {
+    padding: 5px 0 5px 10px;
+    background-color: #ffffff;
 }

@@ -1,7 +1,8 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnChanges, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { CalendarService } from 'src/app/services/calendar.service';
 import { AppEvents } from 'src/app/services/models/events';
+import { SpaceService } from '../services/space.service';
 
 @Component({
   selector: 'app-calendar',
@@ -9,17 +10,17 @@ import { AppEvents } from 'src/app/services/models/events';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit, OnDestroy {
-  isSelected: Date
-  sidebarIsOpen: boolean
+  sidebarIsOpen: boolean;
 
-  eventList: AppEvents
+  isSelected: Date;
+  eventList: AppEvents;
 
   mobileQuery: MediaQueryList;
 
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef,
-      media: MediaMatcher, private _calS: CalendarService) {
+      media: MediaMatcher, private _calS: CalendarService, private _spaceS: SpaceService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
@@ -27,6 +28,11 @@ export class CalendarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getData();
+    if(this.mobileQuery.matches){
+      this._spaceS.setMobile(56)
+    } else {
+      this._spaceS.setMobile(0)
+    }
   }
 
   ngOnDestroy(): void {
